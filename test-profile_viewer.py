@@ -1,3 +1,4 @@
+import beem
 import streamlit as st
 from beem import Hive
 from beem.account import Account
