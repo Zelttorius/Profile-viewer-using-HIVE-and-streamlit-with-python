@@ -4,7 +4,7 @@ from beem.account import Account
 import json
 
 # Conectar a un nodo de hive
-h = Hive(node=["https://api.hive.blog"])
+h = Hive()
 
 st.write("Visor de perfiles de hive")
 
@@ -18,9 +18,9 @@ def info_cuenta(username):
     #Obtener la foto de perfil de la cuenta
     foto_cuenta = perfil_cuenta["profile"]["profile_image"]
 
-    info_cuenta("joheredia21")
+    #info_cuenta("joheredia21")
 
-    return cuenta, perfil_cuenta, foto_cuenta
+    return cuenta , perfil_cuenta , foto_cuenta
 
 col1, col2 = st.columns([3, 1])
 col3, col4 = st.columns([1, 3])
@@ -40,12 +40,6 @@ if busqueda_boton and username:
     #obtener info de la cuenta
     cuenta, perfil_cuenta, foto_cuenta = info_cuenta(username)
 
-    #mostrar foto
-    st.image(foto_cuenta, width=500)
-
-    st.write(cuenta)
-
-
     with col3:
         #Mostrar informacion de la cuenta
         st.write(f'Nombre : {cuenta['name']}')
@@ -53,3 +47,8 @@ if busqueda_boton and username:
     with col4:
         #mostrar la MEMO KEY de la cuenta
         st.write(f"MEMO KEY: {cuenta['memo_key']}")
+
+    #mostrar foto
+    st.image(foto_cuenta, width=500)
+
+    st.write(cuenta)
